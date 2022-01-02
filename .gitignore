@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/LoginDemo/wwwroot/lib/jquery-validation
+/LoginDemo/wwwroot/lib/jquery
+/LoginDemo/wwwroot/lib/jquery-validation-unobtrusive
+/LoginDemo/wwwroot/lib/bootstrap
