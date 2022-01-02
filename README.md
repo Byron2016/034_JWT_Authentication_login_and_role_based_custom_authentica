@@ -25,3 +25,23 @@
 		- Add to Data/ApplicationDbContext.cs
 			- public DbSet<UserTest> UserTests { set; get; }
 
+	- Add connectionString to appsettings.json
+		"ConnectionStrings": {
+			"Default": "server=localhost,3306; user=root;password=123456;database=yt_csharp_auth_dos"
+		}
+		
+	- Add use MySql to "Startup.cs/ConfigureServices"
+		var sqlConnectionString = Configuration.GetConnectionString("Default");
+	
+		//var serverVersion = new MySqlServerVersion(new Version(8, 0, 21));
+		var serverVersion = ServerVersion.AutoDetect(sqlConnectionString);
+	
+		services.AddDbContext<ApplicationDbContext>(
+			options => options
+				.UseMySql(sqlConnectionString, serverVersion)
+		);
+				
+	- Migration
+		- dotnet build
+		- dotnet ef get-help about_entityframeworkcore
+		- dotnet ef migrations add CreateUserTestsTable
