@@ -1,6 +1,8 @@
+using LoginDemo.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -23,6 +25,18 @@ namespace LoginDemo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var sqlConnectionString = Configuration.GetConnectionString("Default");
+
+            //var serverVersion = new MySqlServerVersion(new Version(8, 0, 21));
+            var serverVersion = ServerVersion.AutoDetect(sqlConnectionString);
+
+            services.AddDbContext<ApplicationDbContext>(
+                options => options
+                    .UseMySql(sqlConnectionString, serverVersion)
+            );
+
+
+
             services.AddControllersWithViews();
         }
 
