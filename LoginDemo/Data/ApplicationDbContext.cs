@@ -1,8 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using LoginDemo.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace LoginDemo.Data
 {
@@ -12,5 +9,7 @@ namespace LoginDemo.Data
         {
 
         }
+
+        public DbSet<UserTest> UserTests { set; get; }
     }
 }

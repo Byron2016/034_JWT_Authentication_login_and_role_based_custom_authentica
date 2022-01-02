@@ -9,4 +9,19 @@
 			- Esta ya tiene dependencia para Microsoft.EntityFrameworkCore 5.0.10
 			
 	- dotnet add package Microsoft.EntityFrameworkCore.Design --version 5.0.13
+	
+	- Add DbSet
+		- Create Models/UserTests.cs
+			namespace LoginDemo.Models
+			{
+				public class UserTest
+				{
+					public int Id { get; set; }
+					public string Name { get; set; }
+					public string Email { get; set; }
+					public string Password { get; set; }
+				}
+			}
+		- Add to Data/ApplicationDbContext.cs
+			- public DbSet<UserTest> UserTests { set; get; }
 
