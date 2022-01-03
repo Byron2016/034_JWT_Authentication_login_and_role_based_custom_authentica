@@ -45,3 +45,24 @@
 		- dotnet build
 		- dotnet ef get-help about_entityframeworkcore
 		- dotnet ef migrations add CreateUserTestsTable
+		- SeedDatabase
+			- Add Method to "Data/ApplicationDbContext.cs"
+				protected override void OnModelCreating(ModelBuilder modelBuilder)
+				{
+					base.OnModelCreating(modelBuilder);
+					modelBuilder.Entity<UserTest>(entity =>
+					{
+						entity.HasData(
+							new UserTest
+							{
+								Id = 1,
+								Name = "a",
+								Email = "a.yahoo.com",
+								Password = "b"
+							}
+							);
+					});
+				}
+			- dotnet ef migrations add SeedUserTestsTable
+
+		- dotnet ef database update

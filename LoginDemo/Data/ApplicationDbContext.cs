@@ -11,5 +11,22 @@ namespace LoginDemo.Data
         }
 
         public DbSet<UserTest> UserTests { set; get; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<UserTest>(entity =>
+            {
+                entity.HasData(
+                    new UserTest
+                    {
+                        Id = 1,
+                        Name = "a",
+                        Email = "a.yahoo.com",
+                        Password = "b"
+                    }
+                    );
+            });
+        }
     }
 }
