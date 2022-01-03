@@ -15,7 +15,7 @@ namespace LoginDemo.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            base.OnModelCreating(modelBuilder); //Es necesasrio para identity que sepa construir el model builder 
             modelBuilder.Entity<UserTest>(entity =>
             {
                 //entity.HasData(

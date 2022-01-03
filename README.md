@@ -68,3 +68,17 @@
 			- Se puede crear un médoto de extienda de ModelBuilder y poner todo el seed ahí adentro.
 
 		- dotnet ef database update
+		
+> Add ASP NET Core Identity
+	- dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore --version 5.0.13
+	- public class ApplicationDbContext: IdentityDbContext
+	- services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();;
+	- app.UseAuthentication();
+	protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder); //Es necesasrio para identity que sepa construir el model builder 
+	
+	- Migration
+		- dotnet build
+		- dotnet ef migrations add AddingIdendity
+		- dotnet ef database update
