@@ -64,5 +64,7 @@
 					});
 				}
 			- dotnet ef migrations add SeedUserTestsTable
+			
+			- Se puede crear un médoto de extienda de ModelBuilder y poner todo el seed ahí adentro.
 
 		- dotnet ef database update
