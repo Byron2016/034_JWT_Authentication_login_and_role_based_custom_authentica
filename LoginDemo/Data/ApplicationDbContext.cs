@@ -17,16 +17,17 @@ namespace LoginDemo.Data
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<UserTest>(entity =>
             {
-                entity.HasData(
-                    new UserTest
-                    {
-                        Id = 1,
-                        Name = "a",
-                        Email = "a.yahoo.com",
-                        Password = "b"
-                    }
-                    );
+                //entity.HasData(
+                //    new UserTest
+                //    {
+                //        Id = 1,
+                //        Name = "a",
+                //        Email = "a.yahoo.com",
+                //        Password = "b"
+                //    }
+                //    );
             });
+            modelBuilder.Seed();
         }
     }
 }
